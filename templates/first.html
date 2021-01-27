@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h1 style="color: white; text-align: center;margin-top: 10px"><span style="color:red">COVID-19</span> WORLDWIDE DATA</h1>
+
+<form method='post' class='d-flex justify-content-center align-items-center' style='margin-top: 40px' action=''>
+	{% csrf_token %}
+	<select  class='form-control' style='width: 25%' name='clicked'>
+		{% for country in list %}
+			<option>{{country}}</option>
+		{% endfor %}
+	</select>
+	<input type='submit' class ='btn btn-danger' name=''>
+</form>
+
+<h2 style="text-align: center; color: white; margin-top: 80px"><b>{{clicked}}</b></h2>
+
+<div class='d-flex justify-content-center align-items-center' style='margin-top: 40px'>
+	<div class="container" style="border-radius: 10px;background-color: orange; height: 100px; width: 200px">
+		<h1 style='text-align: center'>{{total}}</h1>
+		<p style='text-align: center'>total cases</p>
+	</div>
+	<div class="container" style="border-radius: 10px;background-color: green; height: 100px; width: 200px">
+		<h1 style='text-align: center;color: white'>{{recovered}}</h1>
+		<p style='text-align: center;color: white'>recovered</p>
+	</div>
+	<div class="container" style="border-radius: 10px;background-color: yellow; height: 100px; width: 200px">
+		<h1 style='text-align: center'>{{active}}</h1>
+		<p style='text-align: center'>active</p>
+	</div>
+</div>
+
+<div class='d-flex justify-content-center align-items-center' style='margin-top: 10px'>
+	<div class="container" style="border-radius: 10px;background-color: skyblue ; height: 100px; width: 200px">
+		<h1 style='text-align: center'>{{new}}</h1>
+		<p style='text-align: center'>new</p>
+	</div>
+	<div class="container" style="border-radius: 10px;background-color: red ; height: 100px; width: 200px">
+		<h1 style='text-align: center; color: white'>{{deaths}}</h1>
+		<p style='text-align: center;color: white'>deaths</p>
+	</div>
+	<div class="container" style="border-radius: 10px;background-color: grey; height: 100px; width: 200px">
+		<h1 style='text-align: center; color: white'>{{critical}}</h1>
+		<p style='text-align: center; color: white'>critical</p>
+	</div>
+</div>
+
+<p style='color: grey;margin-top: 50px;text-align: center'>Developed By<span style='color: white'> Saranya</span></p>
+
+
+{% endblock %}
